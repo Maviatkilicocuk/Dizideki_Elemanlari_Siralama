@@ -1,0 +1,59 @@
+package Diziler;
+import java.util.Scanner;
+
+public class Dizideki_Elemanlari_Siralama {
+    int size;
+    int[] list;
+
+    public void boyut() {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Lütfen dizinin boyutunu giriniz : ");
+        size = input.nextInt();
+        list = new int[size];
+    }
+
+    public void girdi() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Dizinin Elemanlarını giriniz : ");
+        for (int i = 0; i < size; i++) {
+            System.out.print(i + ". elemanı = ");
+            list[i] = input.nextInt();
+        }
+    }
+
+    public void sirala() {
+
+        for (int i = 0; i < list.length - 1; i++) {
+            for (int j = 0; j < list.length - 1 - i; j++) {
+                if (list[j] > list[j + 1]) {
+                    // Değerleri yer değiştir
+                    int temp = list[j];
+                    list[j] = list[j + 1];
+                    list[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Dizideki_Elemanlari_Siralama dizi = new Dizideki_Elemanlari_Siralama(); // Nesne oluşturuluyor
+        dizi.boyut();
+        dizi.girdi();
+
+        System.out.println("Dizi elemanları: ");
+        for (int num : dizi.list) {
+            System.out.print(num + " ");
+        }
+
+        dizi.sirala();
+        System.out.println();
+        System.out.println("Sıralanmış Dizi: ");
+        for (int num : dizi.list) {
+            System.out.print(num + " ");
+        }
+
+
+
+
+    }
+}
